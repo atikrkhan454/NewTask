@@ -24,15 +24,18 @@ public class LoginPage {
     WebElement buttnLogin;
 
     public void setUserName(String uname){
+
         txtUserName.sendKeys(uname);
     }
 
     public void setPassword(String pwd){
+
         txtPassword.sendKeys(pwd);
     }
 
     public void clickSubmit(){
-        buttnLogin.click();
+
+         buttnLogin.click();
     }
 
 }

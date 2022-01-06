@@ -16,12 +16,14 @@ public class BaseClass {
 
     @BeforeTest
     public void openWeb() {
-        System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"//Drivers//chromedriver.exe");
-        driver=new ChromeDriver();
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+
     }
 
     @AfterTest
     public void tearDown(){
+
         driver.quit();
     }
 }
