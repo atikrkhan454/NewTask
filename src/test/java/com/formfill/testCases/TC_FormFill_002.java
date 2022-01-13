@@ -13,7 +13,7 @@ public class TC_FormFill_002 {
     WebDriver driver;
 
    @Test
-    public void fillUpTest(){
+    public void fillUpTest() {
 
         RegistrationForm regd= new RegistrationForm(driver);
 
@@ -23,6 +23,7 @@ public class TC_FormFill_002 {
         regd.typeEmail();
         regd.clickgender();
         regd.typeMobileNo();
+      //  regd.clickBirthDate();
         regd.selectHobbies();
         regd.typeAddrss();
         regd.clickSubmit();
