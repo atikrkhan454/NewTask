@@ -5,8 +5,10 @@ import java.util.Scanner;
 public class PrintMovie {
 
     public static void main(String[] args) {
+        PrimeList pl=new PrimeList();
+        pl.setName();
 
-        Scanner sc = new Scanner(System.in);
+      Scanner sc = new Scanner(System.in);
 
         String title = null;
         String category = null;

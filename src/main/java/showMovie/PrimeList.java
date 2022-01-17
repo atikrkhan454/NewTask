@@ -1,11 +1,21 @@
 package showMovie;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PrimeList {
 
 
     private static final ArrayList<Movie> allMovies = new ArrayList<>(4);
+    HashMap<String,String> amazon=new HashMap<>();
+
+    public void setName(){
+        amazon.put("comedy","dhol");
+        amazon.put("action","wanted");
+        amazon.put("comedy","herapheri");
+        System.out.println(amazon.get("comedy"));
+    }
+
 
     public static ArrayList<Movie> getAllMovies() {
         allMovies.add(new Movie("Bhagam Bhag", "comedy"));
