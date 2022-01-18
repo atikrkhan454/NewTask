@@ -3,51 +3,49 @@ package com.crossBrowser;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
 
-public class MultipleBrowserTesting {
+public class Browser {
 
     WebDriver driver;
+    private String browserName;
 
-    @BeforeTest
-    @Parameters("browserName")
 
-    public void setup(String browserName) throws Exception {
+    public void setBrowser(String browserName) throws Exception {
 
-        System.out.println("Browser Name is:"+ browserName);
 
-        //Check if parameter passed as chrome
         if (browserName.equalsIgnoreCase("chrome")) {
 
             System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver.exe");
             driver = new ChromeDriver();
+            driver.manage().window().maximize();
         }
         //Check if parameter passed as firefox
         else if (browserName.equalsIgnoreCase("firefox")) {
 
             System.setProperty("webdriver.gecko.driver", "C:\\Selenium\\geckodriver.exe");
             driver = new FirefoxDriver();
+            driver.manage().window().maximize();
         } else {
             //If no browser passed throw an exception
             throw new Exception("Browser is not correct");
         }
-        driver.manage().window().maximize();
-
+        this.browserName = browserName;
     }
 
-    @Test
-    public void gettingTitleName() {
-        driver.get("https://www.atmecs.com/");
-        System.out.println(driver.getTitle());
-
+    public String getBrowser() {
+        return browserName;
     }
 
-    @AfterTest
-    public void tearDown() {
 
-        //driver.close();
+    public void setUrl(String urlSet) {
+        driver.get(urlSet);
+
+        String title= driver.getTitle();
+        System.out.println(title);
+
+        driver.close();
     }
+
+
+
 }
