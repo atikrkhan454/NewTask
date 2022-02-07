@@ -21,8 +21,8 @@ public class TestCases {
     public void loginEmail() throws InterruptedException, FileNotFoundException {
 
         GmailPageObjects gp= PageFactory.initElements(driver, GmailPageObjects.class);
-        gp.enterEmail("atik.khan@atmecs.com");
-        gp.enterPassword("Atikrkhan@123456");
+        gp.enterEmail("Your Gmail id");
+        gp.enterPassword("Gmail password");
         gp.writeCSV();
 
     }
