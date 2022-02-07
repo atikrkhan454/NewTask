@@ -15,10 +15,12 @@ public class User {
 
     public User(String firstName, String middleName, String lastName, String pin, Bank theBank) {
 
+        //set user's name
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
 
+        //store the pin's MD5 hash,rather than the original value for security reasons
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             this.pinHash=md.digest(pin.getBytes());
@@ -28,8 +30,13 @@ public class User {
             System.exit(1);
         }
 
+        //get a new uuid for the user
         this.uuid=theBank.getNewUserUUID();
+
+        //create empty list of Ac
         this.accounts= new ArrayList<Account>();
+
+        //print log in message
         System.out.printf("New user %s %s %s with ID %s created.\n",firstName,middleName,lastName,this.uuid);
     }
 
@@ -41,6 +48,7 @@ public class User {
         return this.uuid;
     }
     public boolean validatePin(String aPin) {
+
         //check whether a given pin matches the true user pin
         try {
             MessageDigest md= MessageDigest.getInstance("MD5");
@@ -84,9 +92,9 @@ public class User {
         return this.accounts.get(acctIdx).getUUID();
     }
 
-    public void addAcctTransaction(int acctIdx, double amount, String memo){
+    public void addAcctTransaction(int acctIdx, double amount, String remarks){
 
-        this.accounts.get(acctIdx).addTransaction(amount, memo);
+        this.accounts.get(acctIdx).addTransaction(amount, remarks);
     }
 
 }

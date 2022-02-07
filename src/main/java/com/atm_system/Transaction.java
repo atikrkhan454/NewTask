@@ -6,7 +6,7 @@ public class Transaction {
 
     private double amount;
     private Date timestamp;
-    private String memo;
+    private String remarks;
     private Account inAccount;
 
     public Transaction(double amount, Account inAccount){
@@ -14,15 +14,15 @@ public class Transaction {
         this.amount= amount;
         this.inAccount= inAccount;
         this.timestamp= new Date();
-        this.memo="";
+        this.remarks="";
 
 
     }
 
-    public Transaction(double amount, String memo,Account inAccount){
+    public Transaction(double amount, String remarks,Account inAccount){
 
         this(amount,inAccount);
-        this.memo=memo;
+        this.remarks=remarks;
     }
 
     public double getAmount(){
@@ -32,9 +32,9 @@ public class Transaction {
     public String getSummaryLine(){
 
         if (this.amount >= 0){
-            return String.format("%s : ₹%.02f : %s", this.timestamp.toString(), this.amount, this.memo);
+            return String.format("%s : ₹%.02f : %s", this.timestamp.toString(), this.amount, this.remarks);
         }else {
-            return String.format("%s : (₹%.02f) : %s", this.timestamp.toString(), -this.amount, this.memo);
+            return String.format("%s : (₹%.02f) : %s", this.timestamp.toString(), -this.amount, this.remarks);
         }
     }
 

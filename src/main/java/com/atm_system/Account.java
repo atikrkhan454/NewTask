@@ -11,10 +11,14 @@ public class Account {
 
     public Account(String name, User holder, Bank theBank){
 
+        //set the Ac name and holder
         this.name=name;
         this.holder=holder;
 
+        //get new Ac uuid
         this.uuid=theBank.getNewAccountUUID();
+
+        //init transactions
         this.transactions= new ArrayList<Transaction>();
 
 
@@ -52,9 +56,9 @@ public class Account {
         System.out.println();
     }
 
-    public void addTransaction(double amount, String memo){
+    public void addTransaction(double amount, String remarks){
 
-        Transaction newTrans = new Transaction(amount, memo, this);
+        Transaction newTrans = new Transaction(amount, remarks, this);
         this.transactions.add(newTrans);
     }
 }

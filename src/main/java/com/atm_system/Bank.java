@@ -16,6 +16,7 @@ public class Bank {
         this.accounts= new ArrayList<Account>();
     }
 
+    //Generate unique ID for user
     public String getNewUserUUID(){
 
         String uuid;
@@ -45,6 +46,8 @@ public class Bank {
         return uuid;
 
     }
+
+    //Generate unique Ac no for a user
     public String getNewAccountUUID(){
 
         String uuid;
@@ -105,6 +108,7 @@ public class Bank {
         return this.name;
     }
 
+    //Add an Ac
     public void addAccount(Account anAcct){
         this.accounts.add(anAcct);
     }

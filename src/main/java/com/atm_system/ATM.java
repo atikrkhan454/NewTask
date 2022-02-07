@@ -150,7 +150,7 @@ public class ATM {
         int fromAcct;
         double amount;
         double acctBal;
-        String memo;
+        String remarks;
 
         do {
             System.out.printf("Enter the number (1-%d) of the account\n" + "to withdraw from:", theUser.numAccounts());
@@ -172,9 +172,9 @@ public class ATM {
         }while (amount < 0 || amount > acctBal);
         sc.nextLine();
 
-        System.out.print("Enter a memo: ");
-        memo= sc.nextLine();
-        theUser.addAcctTransaction(fromAcct, -1*amount, memo);
+        System.out.print("Enter a remarks: ");
+        remarks= sc.nextLine();
+        theUser.addAcctTransaction(fromAcct, -1*amount, remarks);
 
 
     }
@@ -183,7 +183,7 @@ public class ATM {
         int toAcct;
         double amount;
         double acctBal;
-        String memo;
+        String remarks;
 
         do {
             System.out.printf("Enter the number (1-%d) of the account\n" + "to deposit in:", theUser.numAccounts());
@@ -203,9 +203,9 @@ public class ATM {
         }while (amount < 0 );
         sc.nextLine();
 
-        System.out.print("Enter a memo: ");
-        memo= sc.nextLine();
-        theUser.addAcctTransaction(toAcct, amount, memo);
+        System.out.print("Enter a remarks: ");
+        remarks= sc.nextLine();
+        theUser.addAcctTransaction(toAcct, amount, remarks);
 
     }
 
